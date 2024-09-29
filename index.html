@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Inv</title>
+    <title>Discord Invitation</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -15,6 +15,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 1s forwards; /* Fade in effect */
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
         .ui-background {
             background-color: #23272a;
@@ -22,6 +27,10 @@
             padding: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             text-align: center;
+            display: none; /* Initially hidden */
+        }
+        .show {
+            display: block; /* Show after fade-in */
         }
         .gradient-text {
             background: linear-gradient(to right, lightpurple, lightblue);
@@ -45,18 +54,32 @@
         img {
             max-width: 100%;
             height: auto;
+            transition: transform 0.3s ease; /* Add transition for hover effect */
+        }
+        img:hover {
+            transform: scale(1.1); /* Scale up on hover */
         }
     </style>
 </head>
 <body>
-    <div class="ui-background">
-        <img src="https://cdn.prod.website-files.com/625fe439fb70a9d901e138ab/648c1a09c6a80c200fa95349_628c05f2e63f068e62b96336_Discord%20Author%20Black.png" alt="Discord Logo">
+    <div class="ui-background" id="content">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Discord_logo.svg" alt="Discord Logo">
         <h1 class="gradient-text">Welcome to Discord UI Clone</h1>
+        <p>Your community awaits! Join us to chat, share, and have fun with RBLX exploiting.</p>
         
         <!-- Replace the URL below with your actual Discord invite link -->
-        <a href="https://discord.gg/qbtukq7rHY" target="_blank">
+        <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank">
             <button class="button">Join Server</button>
         </a>
     </div>
+
+    <script>
+        // Show content after a short delay
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('content').classList.add('show');
+            }, 1000); // Delay in milliseconds
+        };
+    </script>
 </body>
-      </html>
+</html>
